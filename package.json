@@ -1,0 +1,42 @@
+{
+  "name": "kundan-optin-form",
+  "version": "1.0.0",
+  "description": "A optin form for kundan user's website",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node build/dev-server.js",
+    "build": "node build/build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.abovestratus.com:kundan/js-optin-form.git"
+  },
+  "keywords": [
+    "js",
+    "plugin",
+    "optin",
+    "kundan"
+  ],
+  "author": "Kundan",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "eslint": "^3.14.1",
+    "eslint-config-airbnb-base": "^11.0.1",
+    "eslint-friendly-formatter": "^2.0.7",
+    "eslint-loader": "^1.6.1",
+    "eslint-plugin-import": "^2.2.0",
+    "express": "^4.14.1",
+    "friendly-errors-webpack-plugin": "^1.1.3",
+    "html-webpack-plugin": "^2.28.0",
+    "webpack": "^2.2.1",
+    "webpack-bundle-analyzer": "^2.2.1",
+    "webpack-dev-middleware": "^1.10.0",
+    "webpack-hot-middleware": "^2.16.1"
+  }
+}
