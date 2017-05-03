@@ -1,5 +1,6 @@
 import locale from './locale/en';
 import Builder from './helpers/builder';
+import Validator from './helpers/validator';
 
 const availableFields = [
   'email',
@@ -17,10 +18,18 @@ const availableFields = [
 export class Form {
   constructor(id, options) {
     this.container = document.getElementById(id);
+    this.formElements = [];
     this.options = Object.assign({
       template: '<form id="kundan-form-container"></form>',
       formContainerClass: 'kundan-form',
       inputGroupClass: 'input-group',
+      inputClass: 'input',
+      labelClass: 'label',
+      btnClass: 'button',
+      errorClass: 'error',
+      successClass: 'success',
+      flat: false,
+      availableFields,
       fields: [
         {
           name: 'firstName',
@@ -29,28 +38,30 @@ export class Form {
         'lastName',
       ],
       locale,
+      successMessage: locale.success,
     }, options);
 
-    Form.validateFieldOptions(this.options.fields);
+    this.validateFieldOptions();
 
     this.container.innerHTML = this.options.template;
     this.formContainer = document.getElementById('kundan-form-container');
     this.formContainer.classList.add(this.options.formContainerClass);
+
+    this.builder = new Builder(this.formContainer, {
+      inputGroupClass: this.options.inputGroupClass,
+      inputClass: this.options.inputClass,
+      labelClass: this.options.labelClass,
+      btnClass: this.options.btnClass,
+      errorClass: this.options.errorClass,
+      successClass: this.options.successClass,
+    });
 
     this.build();
   }
 
   createFormJson() {
     const email = this.options.fields.filter(f => f.name === 'email');
-    const form = [
-      {
-        name: 'email',
-        type: 'email',
-        placeholder: email.length > 0 ? email[0].placeholder : undefined,
-        label: email.length > 0 && email[0].label !== undefined ?
-        email[0].label : this.options.locale.email,
-      },
-    ];
+    const form = [];
 
     this.options.fields.map((f) => {
       if (f === 'email' || f.name === 'email') {
@@ -76,34 +87,57 @@ export class Form {
       });
     });
 
+    form.push(
+      {
+        name: 'email',
+        type: 'email',
+        placeholder: email.length > 0 ? email[0].placeholder : undefined,
+        label: email.length > 0 && email[0].label !== undefined ?
+        email[0].label : this.options.locale.email,
+      },
+    );
+
     return form;
   }
 
   build() {
-    const b = new Builder(this.formContainer, {
-      inputGroupClass: this.options.inputGroupClass,
-    });
+    if (this.options.flat) {
+      this.formElements = this.builder.renderInputs(this.createFormJson());
+    } else {
+      this.formElements = this.builder.renderGroups(this.createFormJson());
+    }
 
-    b.renderGroups(this.createFormJson());
-
-    b.append(
-      Builder.createSubmitBtn(this.options.locale.submit, this.onSubmit.bind(this)),
+    this.builder.append(
+      this.builder.createSubmitBtn(this.options.locale.submit, this.onSubmit.bind(this)),
     );
   }
 
   onSubmit(e) {
     e.preventDefault();
-    console.log(this);
+    const values = this.builder.getInputValues();
+    const requiredFields = this.options.fields
+    .filter(f => typeof f === 'string' || f.required === undefined || f.required)
+    .map(f => (typeof f === 'string' ? f : f.name));
+    requiredFields.push('email');
+
+    const v = new Validator(requiredFields);
+    const errors = v.validate(values);
+
+    if (Object.keys(errors).length > 0) {
+      return this.builder.recordErrors(errors);
+    }
+
+    return this.builder.addSuccess(this.options.successMessage);
   }
 
-  static validateFieldOptions(fields) {
-    fields.map((f) => {
+  validateFieldOptions() {
+    this.options.fields.map((f) => {
       let name = f;
       if (typeof f === 'object') {
         name = f.name;
       }
 
-      if (availableFields.indexOf(name) === -1) {
+      if (this.options.availableFields.indexOf(name) === -1) {
         throw new Error(`Field ${name} not available. Make sure the fields array item has\
          a string or a object with a name attribute containing one of the available fields.`);
       }

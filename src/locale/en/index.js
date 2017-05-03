@@ -9,4 +9,5 @@ export default {
   city: 'City',
   country: 'Country',
   submit: 'Submit',
+  success: 'Form submited!',
 };
