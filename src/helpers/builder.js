@@ -130,6 +130,7 @@ export default class Builder {
 
   addSuccess(message) {
     this.inputs.map((i) => {
+      // eslint-disable-next-line
       i.value = '';
       return i;
     });
