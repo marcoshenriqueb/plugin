@@ -10,6 +10,9 @@ function resolve (dir) {
 module.exports = function(env) {
   if (env === 'production') {
     var plugins = [
+      new webpack.DefinePlugin({
+        'process.env': require('./../env').prod
+      }),
       new webpack.optimize.UglifyJsPlugin({
         compress: {
           warnings: false
@@ -41,6 +44,9 @@ module.exports = function(env) {
     ];
   } else if (env === 'unminified') {
     var plugins = [
+      new webpack.DefinePlugin({
+        'process.env': require('./../env').prod
+      }),
       new HtmlWebpackPlugin({
         filename: 'unminified.html',
         template: resolve('index.html'),
@@ -56,6 +62,9 @@ module.exports = function(env) {
     ];
   } else {
     var plugins = [
+      new webpack.DefinePlugin({
+        'process.env': require('./../env').dev
+      }),
       // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoEmitOnErrorsPlugin(),

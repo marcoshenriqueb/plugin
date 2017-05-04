@@ -1,15 +1,19 @@
 export default class Builder {
-  constructor(container, options = {}) {
+  constructor(container, template, options = {}) {
     this.container = container;
+    this.container.innerHTML = template;
+    this.form = this.container.firstChild;
     this.inputs = [];
     this.button = {};
     this.errors = [];
     this.success = {};
     this.options = options;
+
+    this.form.classList.add(this.options.formContainerClass);
   }
 
   append(element) {
-    return this.container.appendChild(element);
+    return this.form.appendChild(element);
   }
 
   appendGroup(name, type, label, placeholder) {
@@ -19,11 +23,11 @@ export default class Builder {
   }
 
   renderGroups(groups) {
-    return groups.map(g => this.appendGroup(g.name, g.type, g.label, g.placeholder));
+    groups.map(g => this.appendGroup(g.name, g.type, g.label, g.placeholder));
   }
 
   renderInputs(inputs) {
-    return inputs.map((i) => {
+    inputs.map((i) => {
       const placeholder = i.placeholder !== undefined ? i.placeholder : i.label;
       return this.append(this.createInput(i.name, i.type, placeholder));
     });
@@ -135,6 +139,6 @@ export default class Builder {
       return i;
     });
 
-    this.container.appendChild(this.createSuccess(message));
+    this.form.appendChild(this.createSuccess(message));
   }
 }

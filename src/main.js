@@ -1,24 +1,26 @@
 import locale from './locale/en';
 import Builder from './helpers/builder';
 import Validator from './helpers/validator';
-
-const availableFields = [
-  'email',
-  'firstName',
-  'lastName',
-  'phoneNumber',
-  'mobileNumber',
-  'streetName',
-  'zipcode',
-  'city',
-  'country',
-];
+import post from './helpers/requester';
 
 // eslint-disable-next-line
 export class Form {
-  constructor(id, options) {
-    this.container = document.getElementById(id);
-    this.formElements = [];
+  constructor(options) {
+    this.container = {};
+    this.formContainer = {};
+    this.builder = {};
+    this.availableFields = [
+      'email',
+      'first_name',
+      'last_name',
+      'phone_number',
+      'mobile_number',
+      'street_name',
+      'zipcode',
+      'city',
+      'country',
+    ];
+
     this.options = Object.assign({
       template: '<form id="kundan-form-container"></form>',
       formContainerClass: 'kundan-form',
@@ -29,25 +31,35 @@ export class Form {
       errorClass: 'error',
       successClass: 'success',
       flat: false,
-      availableFields,
       fields: [
         {
-          name: 'firstName',
+          name: 'first_name',
           required: true,
         },
-        'lastName',
+        'last_name',
       ],
       locale,
       successMessage: locale.success,
     }, options);
 
     this.validateFieldOptions();
+  }
 
-    this.container.innerHTML = this.options.template;
-    this.formContainer = document.getElementById('kundan-form-container');
-    this.formContainer.classList.add(this.options.formContainerClass);
+  render(id) {
+    this.container = document.getElementById(id);
+    this.insertForm();
+  }
 
-    this.builder = new Builder(this.formContainer, {
+  modal() {
+    this.container = document.createElement('div');
+    this.container.style.borderColor = 'red';
+    document.body.appendChild(this.container);
+    this.insertForm();
+  }
+
+  insertForm() {
+    this.builder = new Builder(this.container, this.options.template, {
+      formContainerClass: this.options.formContainerClass,
       inputGroupClass: this.options.inputGroupClass,
       inputClass: this.options.inputClass,
       labelClass: this.options.labelClass,
@@ -55,8 +67,19 @@ export class Form {
       errorClass: this.options.errorClass,
       successClass: this.options.successClass,
     });
-
     this.build();
+  }
+
+  build() {
+    if (this.options.flat) {
+      this.builder.renderInputs(this.createFormJson());
+    } else {
+      this.builder.renderGroups(this.createFormJson());
+    }
+
+    this.builder.append(
+      this.builder.createSubmitBtn(this.options.locale.submit, this.onSubmit.bind(this)),
+    );
   }
 
   createFormJson() {
@@ -100,18 +123,6 @@ export class Form {
     return form;
   }
 
-  build() {
-    if (this.options.flat) {
-      this.formElements = this.builder.renderInputs(this.createFormJson());
-    } else {
-      this.formElements = this.builder.renderGroups(this.createFormJson());
-    }
-
-    this.builder.append(
-      this.builder.createSubmitBtn(this.options.locale.submit, this.onSubmit.bind(this)),
-    );
-  }
-
   onSubmit(e) {
     e.preventDefault();
     const values = this.builder.getInputValues();
@@ -127,7 +138,20 @@ export class Form {
       return this.builder.recordErrors(errors);
     }
 
-    return this.builder.addSuccess(this.options.successMessage);
+    const data = {};
+    values.forEach((value) => {
+      data[value.name] = value.value;
+    });
+    return post(data).then((response) => {
+      console.log(response);
+
+      this.builder.addSuccess(this.options.successMessage);
+    })
+    .catch((error) => {
+      console.log(JSON.parse(error.message));
+
+      this.builder.recordErrors(JSON.parse(error.message));
+    });
   }
 
   validateFieldOptions() {
@@ -137,7 +161,7 @@ export class Form {
         name = f.name;
       }
 
-      if (this.options.availableFields.indexOf(name) === -1) {
+      if (this.availableFields.indexOf(name) === -1) {
         throw new Error(`Field ${name} not available. Make sure the fields array item has\
          a string or a object with a name attribute containing one of the available fields.`);
       }
