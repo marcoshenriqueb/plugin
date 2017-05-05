@@ -1,3 +1,11 @@
+/* ============
+ * Form class
+ * ============
+ *
+ * This is the main class responsible for calling the plugin.
+ */
+
+
 import locale from './locale/en';
 import Builder from './helpers/builder';
 import Validator from './helpers/validator';
@@ -5,6 +13,11 @@ import post from './helpers/requester';
 
 // eslint-disable-next-line
 export class Form {
+  /**
+   * Initializes class properties and assign options.
+   *
+   * @param {Object} options Form options object.
+   */
   constructor(options) {
     this.container = {};
     this.formContainer = {};
@@ -45,11 +58,19 @@ export class Form {
     this.validateFieldOptions();
   }
 
+  /**
+   * Assigns a already existing element as the form container and calls the buidler.
+   *
+   * @param {String} id The form container id.
+   */
   render(id) {
     this.container = document.getElementById(id);
     this.insertForm();
   }
 
+  /**
+   * Creates a modal and assign it as the form container. Then calls the builder.
+   */
   modal() {
     this.container = document.createElement('div');
     this.container.style.borderColor = 'red';
@@ -57,6 +78,9 @@ export class Form {
     this.insertForm();
   }
 
+  /**
+   * Calls the builder constructor to render the form template and assign options.
+   */
   insertForm() {
     this.builder = new Builder(this.container, this.options.template, {
       formContainerClass: this.options.formContainerClass,
@@ -70,6 +94,9 @@ export class Form {
     this.build();
   }
 
+  /**
+   * Call the the Builder method to render the form fields and the submit button.
+   */
   build() {
     if (this.options.flat) {
       this.builder.renderInputs(this.createFormJson());
@@ -82,6 +109,9 @@ export class Form {
     );
   }
 
+  /**
+   * Creates the Json object in which the form Builder will work on.
+   */
   createFormJson() {
     const email = this.options.fields.filter(f => f.name === 'email');
     const form = [];
@@ -123,6 +153,12 @@ export class Form {
     return form;
   }
 
+  /**
+   * This method is the listener to the form submit button. It call the validator, render errors
+   * if any, and then sends the request.
+   *
+   * @param {Object} e The submit event.
+   */
   onSubmit(e) {
     e.preventDefault();
     const values = this.builder.getInputValues();
@@ -148,6 +184,9 @@ export class Form {
     });
   }
 
+  /**
+   * Checks if any field not available is passed in the options fields array.
+   */
   validateFieldOptions() {
     this.options.fields.forEach((f) => {
       let name = f;
