@@ -10,7 +10,24 @@
     <!-- built files will be auto injected -->
     <script>
       document.addEventListener('DOMContentLoaded', function() {        
-        var k = new KundanForm.Form();
+        var k = new KundanForm.Form({
+          fields: [
+            'first_name',
+            'last_name',
+            'phone_number',
+            'mobile_number',
+            'street_name',
+            'zipcode',
+            {
+              name: 'city',
+              required: false,
+            },
+            {
+              name: 'country',
+              required: false,
+            }
+          ]
+        });
         k.render('form');
       });
     </script>

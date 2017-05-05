@@ -5,7 +5,6 @@
  * This is the main class responsible for calling the plugin.
  */
 
-
 import locale from './locale/en';
 import Builder from './helpers/builder';
 import Validator from './helpers/validator';
