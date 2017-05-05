@@ -1,3 +1,10 @@
+/* ============
+ * Requester function.
+ * ============
+ *
+ * Responsible for posting the data to the server.
+ */
+
 const requester = data => (
   new Promise((resolve, reject) => {
     const request = new XMLHttpRequest();
