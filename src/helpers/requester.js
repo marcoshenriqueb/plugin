@@ -35,7 +35,6 @@ const requester = data => (
       params += `${k}=${encodeURIComponent(data[k])}`;
     });
 
-    console.log(data);
     request.send(params);
   })
 );

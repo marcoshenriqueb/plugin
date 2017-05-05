@@ -23,13 +23,13 @@ export default class Builder {
   }
 
   renderGroups(groups) {
-    groups.map(g => this.appendGroup(g.name, g.type, g.label, g.placeholder));
+    groups.forEach(g => this.appendGroup(g.name, g.type, g.label, g.placeholder));
   }
 
   renderInputs(inputs) {
-    inputs.map((i) => {
+    inputs.forEach((i) => {
       const placeholder = i.placeholder !== undefined ? i.placeholder : i.label;
-      return this.append(this.createInput(i.name, i.type, placeholder));
+      this.append(this.createInput(i.name, i.type, placeholder));
     });
   }
 
@@ -76,7 +76,10 @@ export default class Builder {
   }
 
   getInputValues() {
-    return this.inputs.map(i => ({ value: i.value, name: i.name }));
+    const values = {};
+    this.inputs.forEach((i) => { values[i.name] = i.value; });
+
+    return values;
   }
 
   createError(name, text) {
@@ -90,9 +93,9 @@ export default class Builder {
   }
 
   recordErrors(errors) {
-    this.inputs.map((input) => {
+    this.inputs.forEach((input) => {
       if (errors[input.name] === undefined) {
-        return input;
+        return;
       }
 
       const error = this.createError(input.name, errors[input.name][0]);
@@ -101,8 +104,6 @@ export default class Builder {
       } else {
         input.parentNode.appendChild(error);
       }
-
-      return input;
     });
 
     if (Object.keys(errors).length > 0) {
@@ -133,10 +134,9 @@ export default class Builder {
   }
 
   addSuccess(message) {
-    this.inputs.map((i) => {
+    this.inputs.forEach((i) => {
       // eslint-disable-next-line
       i.value = '';
-      return i;
     });
 
     this.form.appendChild(this.createSuccess(message));

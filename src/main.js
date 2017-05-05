@@ -86,9 +86,9 @@ export class Form {
     const email = this.options.fields.filter(f => f.name === 'email');
     const form = [];
 
-    this.options.fields.map((f) => {
+    this.options.fields.forEach((f) => {
       if (f === 'email' || f.name === 'email') {
-        return f;
+        return;
       }
       let name = '';
       let type = 'text';
@@ -102,7 +102,7 @@ export class Form {
         type = f.type || type;
       }
 
-      return form.push({
+      form.push({
         name,
         type,
         label,
@@ -138,24 +138,18 @@ export class Form {
       return this.builder.recordErrors(errors);
     }
 
-    const data = {};
-    values.forEach((value) => {
-      data[value.name] = value.value;
-    });
-    return post(data).then((response) => {
-      console.log(response);
-
+    return post(values).then(() => {
       this.builder.addSuccess(this.options.successMessage);
     })
     .catch((error) => {
-      console.log(JSON.parse(error.message));
-
-      this.builder.recordErrors(JSON.parse(error.message));
+      if (error.message) {
+        this.builder.recordErrors(JSON.parse(error.message));
+      }
     });
   }
 
   validateFieldOptions() {
-    this.options.fields.map((f) => {
+    this.options.fields.forEach((f) => {
       let name = f;
       if (typeof f === 'object') {
         name = f.name;
@@ -165,8 +159,6 @@ export class Form {
         throw new Error(`Field ${name} not available. Make sure the fields array item has\
          a string or a object with a name attribute containing one of the available fields.`);
       }
-
-      return f;
     });
   }
 }

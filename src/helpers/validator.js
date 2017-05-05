@@ -4,13 +4,11 @@ export default class Validator {
     this.errors = {};
   }
 
-  validate(fields) {
-    fields.map((f) => {
-      if (this.required.indexOf(f.name) >= 0 && Validator.isEmpty(f.value)) {
-        this.addError(f.name, 'required');
+  validate(values) {
+    Object.keys(values).forEach((k) => {
+      if (this.required.indexOf(k) >= 0 && Validator.isEmpty(values[k])) {
+        this.addError(k, 'required');
       }
-
-      return f;
     });
 
     return this.errors;
