@@ -1,6 +1,7 @@
 export default class Validator {
-  constructor(required) {
+  constructor(required, locale) {
     this.required = required;
+    this.locale = locale;
     this.errors = {};
   }
 
@@ -19,7 +20,9 @@ export default class Validator {
       this.errors[name] = [];
     }
 
-    this.errors[name].push(error);
+    this.errors[name].push(
+      this.locale.validation[error].replace('{{field}}', this.locale[name].toLowerCase()),
+    );
   }
 
   static isEmpty(value) {

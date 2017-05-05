@@ -131,7 +131,7 @@ export class Form {
     .map(f => (typeof f === 'string' ? f : f.name));
     requiredFields.push('email');
 
-    const v = new Validator(requiredFields);
+    const v = new Validator(requiredFields, this.options.locale);
     const errors = v.validate(values);
 
     if (Object.keys(errors).length > 0) {

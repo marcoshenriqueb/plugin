@@ -10,4 +10,8 @@ export default {
   country: 'Country',
   submit: 'Submit',
   success: 'Form submited!',
+
+  validation: {
+    required: 'The {{field}} field is required.',
+  },
 };
