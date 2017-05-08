@@ -4,7 +4,7 @@
  *
  * This is the main class responsible for rendering the form to the DOM.
  */
-
+import classes from './../classes';
 
 export default class Builder {
   /**
@@ -24,7 +24,9 @@ export default class Builder {
     this.success = {};
     this.options = options;
 
-    this.form.classList.add(this.options.formContainerClass);
+    this.classes = classes[this.options.style];
+    Builder.addClass(this.form, this.options.formContainerClass);
+    Builder.addClass(this.form, this.classes.form.container);
   }
 
   /**
@@ -80,7 +82,8 @@ export default class Builder {
     const input = this.createInput(name, type, placeholder);
 
     const group = document.createElement('div');
-    group.classList.add(this.options.inputGroupClass);
+    Builder.addClass(group, this.options.inputGroupClass);
+    Builder.addClass(group, this.classes.form.group);
     group.appendChild(label);
     group.appendChild(input);
 
@@ -96,7 +99,8 @@ export default class Builder {
    */
   createInput(name, type, placeholder) {
     const input = document.createElement('input');
-    input.classList.add(this.options.inputClass);
+    Builder.addClass(input, this.options.inputClass);
+    Builder.addClass(input, this.classes.form.input);
     input.setAttribute('name', name);
     input.setAttribute('type', type);
     input.setAttribute('placeholder', placeholder);
@@ -114,7 +118,8 @@ export default class Builder {
    */
   createLabel(name, text) {
     const label = document.createElement('label');
-    label.classList.add(this.options.labelClass);
+    Builder.addClass(label, this.options.labelClass);
+    Builder.addClass(label, this.classes.form.label);
     label.setAttribute('for', name);
     label.innerHTML = text;
 
@@ -129,7 +134,8 @@ export default class Builder {
    */
   createSubmitBtn(text, listener) {
     const btn = document.createElement('button');
-    btn.classList.add(this.options.btnClass);
+    Builder.addClass(btn, this.options.btnClass);
+    Builder.addClass(btn, this.classes.form.button);
     btn.innerHTML = text;
     btn.addEventListener('click', listener);
     this.button = btn;
@@ -154,7 +160,8 @@ export default class Builder {
    */
   createError(name, text) {
     const error = document.createElement('span');
-    error.classList.add(this.options.errorClass);
+    Builder.addClass(error, this.options.errorClass);
+    Builder.addClass(error, this.classes.form.error);
     error.setAttribute('id', `${name}Error`);
     error.innerHTML = text;
     this.errors.push(error);
@@ -229,5 +236,13 @@ export default class Builder {
     });
 
     this.form.appendChild(this.createSuccess(message));
+  }
+
+  static addClass(el, c) {
+    if (c.length > 0) {
+      c.split(' ').forEach((classItem) => {
+        el.classList.add(classItem);
+      });
+    }
   }
 }

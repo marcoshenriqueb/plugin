@@ -35,14 +35,15 @@ export class Form {
 
     this.options = Object.assign({
       template: '<form id="kundan-form-container"></form>',
-      formContainerClass: 'kundan-form',
-      inputGroupClass: 'input-group',
-      inputClass: 'input',
-      labelClass: 'label',
-      btnClass: 'button',
-      errorClass: 'error',
-      successClass: 'success',
+      formContainerClass: '',
+      inputGroupClass: '',
+      inputClass: '',
+      labelClass: '',
+      btnClass: '',
+      errorClass: '',
+      successClass: '',
       flat: false,
+      style: 'kundan',
       fields: [
         {
           name: 'first_name',
@@ -82,6 +83,7 @@ export class Form {
    */
   insertForm() {
     this.builder = new Builder(this.container, this.options.template, {
+      style: this.options.style,
       formContainerClass: this.options.formContainerClass,
       inputGroupClass: this.options.inputGroupClass,
       inputClass: this.options.inputClass,
