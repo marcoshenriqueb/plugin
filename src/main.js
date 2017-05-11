@@ -75,9 +75,12 @@ export class Form {
   modal() {
     const modal = new Modal({
       style: this.options.style,
+      title: 'Test',
     });
-    this.container = modal.getContainer();
+    this.container = modal.body;
+    document.body.appendChild(modal.modal);
     this.insertForm();
+    modal.onHide = this.builder.clearForm.bind(this.builder);
     return modal;
   }
 

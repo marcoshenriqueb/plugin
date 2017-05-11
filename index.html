@@ -10,10 +10,11 @@
   <body style="padding:50px;">
     <h1>Hello, Welcome to my Website</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias delectus commodi hic adipisci tempora maiores, labore minus nobis alias doloremque accusantium, harum consequatur eligendi omnis perferendis neque excepturi, temporibus! Laborum?</p>
+    <button id="toggle-modal" class="btn btn-primary">Toggle</button>
     <div id="form" style="width:500px;"></div>
     <!-- built files will be auto injected -->
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {        
         var k = new KundanForm.Form({
@@ -36,7 +37,9 @@
           style: 'bootstrap'
         });
         var modal = k.modal();
-        modal.open();
+        document.getElementById('toggle-modal').addEventListener('click', () => {
+          modal.toggle();
+        });
       });
     </script>
   </body>

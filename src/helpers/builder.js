@@ -104,7 +104,9 @@ export default class Builder {
     input.setAttribute('name', name);
     input.setAttribute('type', type);
     input.setAttribute('placeholder', placeholder);
-    input.addEventListener('keydown', this.removeError.bind(this));
+    input.addEventListener('keydown', (e) => {
+      this.removeError(e.target.name);
+    });
     this.inputs.push(input);
 
     return input;
@@ -198,8 +200,8 @@ export default class Builder {
    *
    * @param {Object} e The event object.
    */
-  removeError(e) {
-    const element = this.errors.filter(error => (error.id === `${e.target.name}Error`));
+  removeError(name) {
+    const element = this.errors.filter(error => (error.id === `${name}Error`));
 
     if (
       element.length > 0 &&
@@ -213,7 +215,7 @@ export default class Builder {
       element[0].parentNode.removeChild(element[0]);
     }
 
-    this.errors = this.errors.filter(error => (error.id !== `${e.target.name}Error`));
+    this.errors = this.errors.filter(error => (error.id !== `${name}Error`));
     if (this.errors.length === 0) {
       this.button.disabled = false;
     }
@@ -240,12 +242,17 @@ export default class Builder {
    * @param {String} message The success message.
    */
   addSuccess(message) {
+    this.clearForm();
+
+    this.form.appendChild(this.createSuccess(message));
+  }
+
+  clearForm() {
     this.inputs.forEach((i) => {
+      this.removeError(i.name);
       // eslint-disable-next-line
       i.value = '';
     });
-
-    this.form.appendChild(this.createSuccess(message));
   }
 
   static addClass(el, c) {
