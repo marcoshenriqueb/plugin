@@ -184,6 +184,7 @@ export default class Builder {
         input.parentNode.insertBefore(error, input.nextSibling);
       } else {
         input.parentNode.appendChild(error);
+        Builder.addClass(input.parentNode, this.classes.form.groupError);
       }
     });
 
@@ -199,6 +200,14 @@ export default class Builder {
    */
   removeError(e) {
     const element = this.errors.filter(error => (error.id === `${e.target.name}Error`));
+
+    if (
+      element.length > 0 &&
+      this.classes.form.groupError &&
+      element[0].parentNode.classList.contains(this.classes.form.groupError)
+    ) {
+      Builder.removeClass(element[0].parentNode, this.classes.form.groupError);
+    }
 
     if (element.length > 0 && !!element[0]) {
       element[0].parentNode.removeChild(element[0]);
@@ -242,6 +251,14 @@ export default class Builder {
     if (c.length > 0) {
       c.split(' ').forEach((classItem) => {
         el.classList.add(classItem);
+      });
+    }
+  }
+
+  static removeClass(el, c) {
+    if (c.length > 0) {
+      c.split(' ').forEach((classItem) => {
+        el.classList.remove(classItem);
       });
     }
   }
