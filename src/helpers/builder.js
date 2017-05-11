@@ -227,13 +227,13 @@ export default class Builder {
    * @param {String} text The success message.
    */
   createSuccess(text) {
-    const el = document.createElement('p');
-    Builder.addClass(el, this.options.successClass);
-    Builder.addClass(el, this.classes.form.success);
-    el.innerHTML = text;
-    this.success = el;
+    this.success = document.createElement('p');
+    Builder.addClass(this.success, this.options.successClass);
+    Builder.addClass(this.success, this.classes.form.success);
+    this.success.innerHTML = text;
+    this.success = this.success;
 
-    return el;
+    return this.success;
   }
 
   /**
@@ -253,6 +253,9 @@ export default class Builder {
       // eslint-disable-next-line
       i.value = '';
     });
+    if (this.success.parentNode) {
+      this.success.parentNode.removeChild(this.success);
+    }
   }
 
   static addClass(el, c) {
