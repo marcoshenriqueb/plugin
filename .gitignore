@@ -1,2 +1,4 @@
 node_modules/*
 env.js
+lib/*
+notes.txt

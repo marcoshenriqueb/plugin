@@ -1,0 +1,648 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"if",
+				"ife\tif … else"
+			],
+			[
+				"add",
+				"addClass"
+			],
+			[
+				"remove",
+				"removeClass"
+			],
+			[
+				"grou",
+				"groupError"
+			],
+			[
+				"class",
+				"classList"
+			],
+			[
+				"adju",
+				"adjustProjectContainers"
+			],
+			[
+				"cons",
+				"containers"
+			],
+			[
+				"flex",
+				"flex-direction"
+			],
+			[
+				"light",
+				"lightbg"
+			],
+			[
+				"da",
+				"darkgraycolor"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"font",
+				"font-size"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 2024,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/main.js",
+			"settings":
+			{
+				"buffer_size": 5403,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/helpers/modal.js",
+			"settings":
+			{
+				"buffer_size": 455,
+				"encoding": "UTF-8",
+				"line_ending": "Unix",
+				"name": "export default class Modal {"
+			}
+		},
+		{
+			"file": "src/helpers/builder.js",
+			"settings":
+			{
+				"buffer_size": 7256,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 132.0,
+		"last_filter": "dock",
+		"selected_items":
+		[
+			[
+				"dock",
+				"DocBlockr: Reparse comment block"
+			],
+			[
+				"deco",
+				"DocBlockr: Decorate line comment"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"gitpus",
+				"Git: Push Current Branch"
+			],
+			[
+				"gitcom",
+				"Git: Commit"
+			],
+			[
+				"git add",
+				"Git: Add..."
+			],
+			[
+				"proje",
+				"Project: Save As"
+			],
+			[
+				"git push",
+				"Git: Push Current Branch"
+			],
+			[
+				"gitcomm",
+				"Git: Commit"
+			],
+			[
+				"gitadd",
+				"Git: Add..."
+			],
+			[
+				"gitpu",
+				"Git: Push Current Branch"
+			],
+			[
+				"gitpush",
+				"Git: Push Current Branch"
+			],
+			[
+				"git commi",
+				"Git: Commit"
+			],
+			[
+				"git com",
+				"Git: Commit"
+			],
+			[
+				"projec",
+				"Project: Save As"
+			],
+			[
+				"project",
+				"Project: Add Folder"
+			],
+			[
+				"git",
+				"Git: Status"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"git comm",
+				"Git: Commit"
+			],
+			[
+				"git sta",
+				"Git: Status"
+			],
+			[
+				"map",
+				"View: Toggle Minimap"
+			],
+			[
+				"comme",
+				"Toggle Comment"
+			],
+			[
+				"snippe",
+				"Snippet: html"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Install Package Control"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/var/www/html/kundan-js-plugin",
+		"/var/www/html/kundan-js-plugin/src",
+		"/var/www/html/kundan-js-plugin/src/helpers"
+	],
+	"file_history":
+	[
+		"/var/www/html/kundan-js-plugin/.sublime-project",
+		"/var/www/html/kundan-js-plugin/src/helpers/builder.js",
+		"/home/marcoshenriqueb/.config/sublime-text-3/Packages/DocBlockr/Base File.sublime-settings",
+		"/home/marcoshenriqueb/.config/sublime-text-3/Packages/User/Base File.sublime-settings",
+		"/home/marcoshenriqueb/.config/sublime-text-3/Packages/DocBlockr/README.md",
+		"/var/www/html/kundan-js-plugin/.eslintignore",
+		"/var/www/html/kundan-js-plugin/notes.txt",
+		"/var/www/html/kundan-js-plugin/.gitignore",
+		"/var/www/html/kundan-js-plugin/index.html",
+		"/var/www/html/kundan-js-plugin/src/classes.js",
+		"/var/www/html/kundan-js-plugin/src/main.js",
+		"/var/www/html/kundan-v4-prototype/package.json",
+		"/var/www/python/myview/home/static/home/js/home.js",
+		"/var/www/python/myview/home/static/home/styl/home.styl",
+		"/var/www/python/myview/home/templates/home.html",
+		"/var/www/python/myview/home/static/home/styl/home/description.styl",
+		"/var/www/python/myview/home/static/home/styl/home/services.styl",
+		"/var/www/python/myview/package.json",
+		"/var/www/python/myview/home/static/home/styl/home/top.styl",
+		"/var/www/python/myview/home/static/home/styl/home/header.styl",
+		"/var/www/html/kundan-v4-backend/storage/logs/laravel.log",
+		"/var/www/html/kundan-v4-backend/resources/lang/en/email.php",
+		"/var/www/html/kundan-v4-backend/resources/views/emails/invoice.blade.php",
+		"/var/www/html/kundan-v4-backend/app/Services/Pdf/PdfService.php",
+		"/var/www/html/kundan-v4-backend/app/Http/Controllers/Account/InvoiceController.php",
+		"/var/www/html/kundan-v4-prototype/src/app/services/creditNote/show.js",
+		"/var/www/html/kundan-v4-backend/database/seeds/BillTypeTableSeeder.php",
+		"/var/www/html/kundan-v4-backend/app/Http/Controllers/Account/CreditNoteController.php",
+		"/var/www/html/kundan-v4-prototype/src/bootstrap.js",
+		"/var/www/html/kundan-v4-backend/app/Transformers/ProductTransformer.php",
+		"/var/www/html/kundan-v4-backend/app/Mail/SendClientInvoice.php",
+		"/var/www/html/kundan-v4-backend/app/Transformers/BillTransformer.php",
+		"/var/www/html/kundan-v4-prototype/src/app/services/invoice/show.js",
+		"/var/www/html/kundan-v4-backend/database/migrations/2017_01_25_102108_create_bills_table.php",
+		"/var/www/html/kundan-v4-backend/.env",
+		"/var/www/html/kundan-v4-prototype/src/app/components/sidebar/sidebar.html",
+		"/var/www/html/kundan-v4-backend/routes/api.php",
+		"/var/www/html/kundan-v4-backend/app/Transformers/SimpleOrderTransformer.php",
+		"/var/www/html/kundan-v4-backend/app/Http/Controllers/Account/OrderController.php",
+		"/var/www/html/kundan-v4-backend/app/Transformers/OrderTransformer.php"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"decorate",
+			"addClass",
+			"addclas",
+			"fa-user",
+			"section-title",
+			"video"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2024,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1928,
+								1928
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 62.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5403,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1746,
+								1746
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1026.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/helpers/modal.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 455,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								164,
+								164
+							]
+						],
+						"settings":
+						{
+							"auto_name": "export default class Modal {",
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/helpers/builder.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7256,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								753,
+								753
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 100.0
+	},
+	"pinned_build_system": "",
+	"project": "kundan-plugin.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"builder",
+				"src/helpers/builder.js"
+			],
+			[
+				"packa",
+				"package.json"
+			],
+			[
+				"laravel",
+				"kundan-v4-backend/storage/logs/laravel.log"
+			],
+			[
+				"billtypeta",
+				"kundan-v4-backend/database/seeds/BillTypeTableSeeder.php"
+			],
+			[
+				"email",
+				"kundan-v4-backend/resources/lang/en/email.php"
+			],
+			[
+				"emailsin",
+				"kundan-v4-backend/resources/views/emails/invoice.blade.php"
+			],
+			[
+				"creditnoteshow",
+				"kundan-v4-prototype/src/app/services/creditNote/show.js"
+			],
+			[
+				"pdfse",
+				"kundan-v4-backend/app/Services/Pdf/PdfService.php"
+			],
+			[
+				"invoicecontro",
+				"kundan-v4-backend/app/Http/Controllers/Account/InvoiceController.php"
+			],
+			[
+				"creditnotecontro",
+				"kundan-v4-backend/app/Http/Controllers/Account/CreditNoteController.php"
+			],
+			[
+				"larave",
+				"kundan-v4-backend/storage/logs/laravel.log"
+			],
+			[
+				"bill",
+				"kundan-v4-backend/app/Transformers/BillTransformer.php"
+			],
+			[
+				"billtra",
+				"kundan-v4-backend/app/Transformers/BillTransformer.php"
+			],
+			[
+				"createbills",
+				"kundan-v4-backend/database/migrations/2017_01_25_102108_create_bills_table.php"
+			],
+			[
+				"invoiceshow",
+				"kundan-v4-prototype/src/app/services/invoice/show.js"
+			],
+			[
+				"productr",
+				"kundan-v4-backend/app/Transformers/ProductTransformer.php"
+			],
+			[
+				".env",
+				"kundan-v4-backend/.env"
+			],
+			[
+				"sendclient",
+				"kundan-v4-backend/app/Mail/SendClientInvoice.php"
+			],
+			[
+				"sidebar",
+				"src/app/components/sidebar/sidebar.html"
+			],
+			[
+				"emailsinvoice",
+				"resources/views/emails/invoice.blade.php"
+			],
+			[
+				"sendclien",
+				"app/Mail/SendClientInvoice.php"
+			],
+			[
+				"accoutninvoi",
+				"app/Http/Controllers/Account/InvoiceController.php"
+			],
+			[
+				"api",
+				"routes/api.php"
+			],
+			[
+				"lara",
+				"storage/logs/laravel.log"
+			],
+			[
+				"simpleorder",
+				"app/Transformers/SimpleOrderTransformer.php"
+			],
+			[
+				"ordertra",
+				"app/Transformers/OrderTransformer.php"
+			],
+			[
+				"ordercontro",
+				"app/Http/Controllers/Account/OrderController.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 255.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -8,6 +8,7 @@
 import locale from './locale/en';
 import Builder from './helpers/builder';
 import Validator from './helpers/validator';
+import Modal from './helpers/modal';
 // import post from './helpers/requester';
 
 // eslint-disable-next-line
@@ -72,10 +73,12 @@ export class Form {
    * Creates a modal and assign it as the form container. Then calls the builder.
    */
   modal() {
-    this.container = document.createElement('div');
-    this.container.style.borderColor = 'red';
-    document.body.appendChild(this.container);
+    const modal = new Modal({
+      style: this.options.style,
+    });
+    this.container = modal.getContainer();
     this.insertForm();
+    return modal;
   }
 
   /**
