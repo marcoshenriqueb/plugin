@@ -225,12 +225,13 @@ export default class Builder {
    * @param {String} text The success message.
    */
   createSuccess(text) {
-    const span = document.createElement('span');
-    span.classList.add(this.options.successClass);
-    span.innerHTML = text;
-    this.success = span;
+    const el = document.createElement('p');
+    Builder.addClass(el, this.options.successClass);
+    Builder.addClass(el, this.classes.form.success);
+    el.innerHTML = text;
+    this.success = el;
 
-    return span;
+    return el;
   }
 
   /**

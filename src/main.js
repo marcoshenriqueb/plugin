@@ -8,7 +8,7 @@
 import locale from './locale/en';
 import Builder from './helpers/builder';
 import Validator from './helpers/validator';
-import post from './helpers/requester';
+// import post from './helpers/requester';
 
 // eslint-disable-next-line
 export class Form {
@@ -175,14 +175,16 @@ export class Form {
       return this.builder.recordErrors(errors);
     }
 
-    return post(values).then(() => {
-      this.builder.addSuccess(this.options.successMessage);
-    })
-    .catch((error) => {
-      if (error.message) {
-        this.builder.recordErrors(JSON.parse(error.message));
-      }
-    });
+
+    return this.builder.addSuccess(this.options.successMessage);
+    // return post(values).then(() => {
+    //   this.builder.addSuccess(this.options.successMessage);
+    // })
+    // .catch((error) => {
+    //   if (error.message) {
+    //     this.builder.recordErrors(JSON.parse(error.message));
+    //   }
+    // });
   }
 
   /**
