@@ -105,6 +105,14 @@ module.exports = function(env) {
           test: /\.js$/,
           loader: 'babel-loader',
           include: [resolve('src'), resolve('test')]
+        },
+        {
+          test: /\.styl$/,
+          use: [
+            'style-loader',
+            'css-loader',
+            'stylus-loader',
+          ]
         }
       ]
     },

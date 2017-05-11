@@ -1,3 +1,5 @@
+import './styl/app.styl';
+
 /* ============
  * Form class
  * ============
@@ -80,7 +82,7 @@ export class Form {
     this.container = modal.body;
     document.body.appendChild(modal.modal);
     this.insertForm();
-    modal.onHide = this.builder.clearForm.bind(this.builder);
+    modal.onHide(this.builder.clearForm.bind(this.builder));
     return modal;
   }
 

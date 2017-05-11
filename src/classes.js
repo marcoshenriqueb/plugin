@@ -2,13 +2,13 @@ export default {
   kundan: {
     form: {
       container: 'kundan-form',
-      group: 'form-group',
-      input: 'input',
-      label: 'label',
-      button: 'button',
-      error: 'error',
-      success: 'success',
-      groupError: '',
+      group: 'kundan-form-group',
+      input: 'kundan-input',
+      label: 'kundan-label',
+      button: 'kundan-button',
+      error: 'kundan-error',
+      success: 'kundan-success',
+      groupError: 'kundan-group-error',
     },
     modal: {
       modal: 'kundan-modal fade',
@@ -17,6 +17,7 @@ export default {
       header: 'kundan-modal-header',
       title: 'kundan-modal-title',
       body: 'kundan-modal-body',
+      closeBtn: 'kundan-modal-close',
     },
   },
   bootstrap: {
