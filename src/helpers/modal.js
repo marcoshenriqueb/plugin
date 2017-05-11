@@ -49,6 +49,13 @@ export default class Modal {
     this.modal.appendChild(this.dialog);
     Builder.addClass(this.modal, this.classes.modal.modal);
     this.modal.id = this.modalId;
+    if (this.options.style !== 'bootstrap') {
+      this.modal.addEventListener('click', (e) => {
+        if (e.target.id === this.modalId) {
+          this.toggle();
+        }
+      });
+    }
 
     // Build dialog
     this.dialog.appendChild(this.content);

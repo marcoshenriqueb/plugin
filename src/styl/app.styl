@@ -1,5 +1,32 @@
 .kundan-modal
   display: none
+  position: fixed
+  z-index: 1000
+  top: 0
+  left: 0
+  height: 100vh
+  width: 100%
+  background-color: rgba(0, 0, 0, 0.3)
+  align-items: center
+  justify-content: center
 
   &.active
-    display: block
+    display: flex
+
+.kundan-modal-dialog
+  background-color: white
+
+.kundan-modal-header
+  display: flex
+  justify-content: space-between
+  padding: 2rem 2rem 0 2rem
+  
+.kundan-modal-title
+  order: -1
+  font-size: 2rem
+  margin: 0
+  
+.kundan-modal-close
+  background-color: transparent
+  border: none
+  font-size: 2rem
